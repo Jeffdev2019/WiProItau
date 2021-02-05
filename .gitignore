@@ -1,0 +1,7 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/CotacaoMoedaAPI/.vs/CotacaoMoedaAPI
+/CotacaoMoedaAPI/CotacaoMoeda.API/bin/Debug/netcoreapp3.1
+/CotacaoMoedaAPI/CotacaoMoeda.Service/obj
