@@ -1,0 +1,8 @@
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\bin\Debug\netcoreapp3.1\CotacaoMoeda.Domain.deps.json
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\bin\Debug\netcoreapp3.1\CotacaoMoeda.Domain.dll
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\bin\Debug\netcoreapp3.1\CotacaoMoeda.Domain.pdb
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\obj\Debug\netcoreapp3.1\CotacaoMoeda.Domain.AssemblyInfoInputs.cache
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\obj\Debug\netcoreapp3.1\CotacaoMoeda.Domain.AssemblyInfo.cs
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\obj\Debug\netcoreapp3.1\CotacaoMoeda.Domain.csproj.CoreCompileInputs.cache
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\obj\Debug\netcoreapp3.1\CotacaoMoeda.Domain.dll
+C:\WiPro\WiProItau\CotacaoMoedaAPI\CotacaoMoeda.Domain\obj\Debug\netcoreapp3.1\CotacaoMoeda.Domain.pdb

@@ -1171,33 +1171,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
-      },
-      "CotacaoMoeda.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "EPPlus": "4.5.3.3",
-          "Microsoft.Extensions.DependencyInjection": "5.0.1"
-        },
-        "compile": {
-          "bin/placeholder/CotacaoMoeda.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CotacaoMoeda.Domain.dll": {}
-        }
-      },
-      "CotacaoMoeda.Service/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "CotacaoMoeda.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/CotacaoMoeda.Service.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CotacaoMoeda.Service.dll": {}
-        }
       }
     }
   },
@@ -4303,22 +4276,12 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
-    },
-    "CotacaoMoeda.Domain/1.0.0": {
-      "type": "project",
-      "path": "../CotacaoMoeda.Domain/CotacaoMoeda.Domain.csproj",
-      "msbuildProject": "../CotacaoMoeda.Domain/CotacaoMoeda.Domain.csproj"
-    },
-    "CotacaoMoeda.Service/1.0.0": {
-      "type": "project",
-      "path": "../CotacaoMoeda.Service/CotacaoMoeda.Service.csproj",
-      "msbuildProject": "../CotacaoMoeda.Service/CotacaoMoeda.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "CotacaoMoeda.Domain >= 1.0.0",
-      "CotacaoMoeda.Service >= 1.0.0"
+      "EPPlus >= 4.5.3.3",
+      "Microsoft.Extensions.DependencyInjection >= 5.0.1"
     ]
   },
   "packageFolders": {
@@ -4328,11 +4291,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.API\\CotacaoMoeda.API.csproj",
-      "projectName": "CotacaoMoeda.API",
-      "projectPath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.API\\CotacaoMoeda.API.csproj",
+      "projectUniqueName": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Domain\\CotacaoMoeda.Domain.csproj",
+      "projectName": "CotacaoMoeda.Domain",
+      "projectPath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Domain\\CotacaoMoeda.Domain.csproj",
       "packagesPath": "C:\\Users\\Jefferson\\.nuget\\packages\\",
-      "outputPath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.API\\obj\\",
+      "outputPath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4350,14 +4313,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Domain\\CotacaoMoeda.Domain.csproj": {
-              "projectPath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Domain\\CotacaoMoeda.Domain.csproj"
-            },
-            "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Service\\CotacaoMoeda.Service.csproj": {
-              "projectPath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Service\\CotacaoMoeda.Service.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -4368,6 +4324,16 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "dependencies": {
+          "EPPlus": {
+            "target": "Package",
+            "version": "[4.5.3.3, )"
+          },
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[5.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -4379,9 +4345,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

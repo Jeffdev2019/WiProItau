@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Ljwwca77u/UPu2bNp6b+UzqiRLIb2HTLMGdAnOdIHDlu1WcKP1IQnBhNTTIhMrqebJ7m+8IniphRj9pTCLBrg==",
+  "dgSpecHash": "2DyZzB5P85oaftkTPnoRR7mf6va57aTmgOjjt2OBGWp1YfelKNcGmRAZINmjpdk5j6U8ym5+o+3jv6hEFNgvhQ==",
   "success": true,
-  "projectFilePath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.API\\CotacaoMoeda.API.csproj",
+  "projectFilePath": "C:\\WiPro\\WiProItau\\CotacaoMoedaAPI\\CotacaoMoeda.Domain\\CotacaoMoeda.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jefferson\\.nuget\\packages\\epplus\\4.5.3.3\\epplus.4.5.3.3.nupkg.sha512",
     "C:\\Users\\Jefferson\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.0\\microsoft.extensions.configuration.3.1.0.nupkg.sha512",

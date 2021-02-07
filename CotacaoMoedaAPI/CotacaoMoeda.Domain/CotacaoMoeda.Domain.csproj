@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CotacaoMoeda.Domain\CotacaoMoeda.Domain.csproj" />
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
   </ItemGroup>
 
 </Project>
