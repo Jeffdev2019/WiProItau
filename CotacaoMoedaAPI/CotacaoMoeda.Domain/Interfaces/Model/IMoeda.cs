@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CotacaoMoeda.Domain.Interfaces.Model
 {
     public interface IMoeda
     {
-        public List<Moeda> GetMoedas();
+        public Task<List<Moeda>> GetMoedasAsync();
 
-        public string AddMoedas();
+        public void AddMoedasAsync(List<Moeda> moeda);
     }
 }

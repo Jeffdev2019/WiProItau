@@ -48,6 +48,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[5.0.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -65,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

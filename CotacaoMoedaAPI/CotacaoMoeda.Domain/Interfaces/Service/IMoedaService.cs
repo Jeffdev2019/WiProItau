@@ -1,12 +1,13 @@
 ﻿using CotacaoMoeda.Domain.DTO.Request;
 using CotacaoMoeda.Domain.DTO.Response;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CotacaoMoeda.Domain.Interfaces.Service
 {
     public interface IMoedaService 
     {
-        public List<MoedaResponse> GetMoeda();
-        public string AddMoeda(List<MoedaRequest> request);
+        Task<List<MoedaResponse>> GetMoedaAsync();
+        void AddMoedaAsync(List<MoedaRequest> request);
     }
 }

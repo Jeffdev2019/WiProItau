@@ -2,8 +2,10 @@
 using CotacaoMoeda.Domain.DTO.Response;
 using CotacaoMoeda.Domain.Interfaces.Model;
 using CotacaoMoeda.Domain.Interfaces.Service;
+using CotacaoMoeda.Domain.Model;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CotacaoMoeda.Service.Service
 {
@@ -16,21 +18,45 @@ namespace CotacaoMoeda.Service.Service
             _moeda = moeda;
         }
 
-        public List<MoedaResponse> GetMoeda()
+        public async Task<List<MoedaResponse>> GetMoedaAsync()
         {
-            return  new List<MoedaResponse>()
-            {
-                new MoedaResponse(){ moeda = "USD", data_fim = "2020-12-01", data_inicio = "2010-01-01" },
-                new MoedaResponse(){ moeda = "EUR", data_fim = "2020-12-01", data_inicio = "2010-01-01" },
-                new MoedaResponse(){ moeda = "JPY", data_fim = "2000-03-11", data_inicio = "2000-03-30" }
-            };
+
+            var response = await ConvertResponseAsync(await _moeda.GetMoedasAsync());
+            return response;
         }
-        public string AddMoeda(List<MoedaRequest> request)
+        public async void AddMoedaAsync(List<MoedaRequest> request)
         {
             if (request.Count > 0)
-               return "Add Com Sucesso.";
-
-            return "Não Add.";
+            {
+                var moedaConvert = await ConvertRequestAsync(request);
+                 _moeda.AddMoedasAsync(moedaConvert);
+            }
         }
+
+        private async Task<List<Moeda>> ConvertRequestAsync(List<MoedaRequest> request)
+        {
+            List<Moeda> response = new List<Moeda>();
+
+            foreach (var item in request)
+            {
+                response.Add(new Moeda(item.moeda, item.data_inicio, item.data_fim));
+            }
+            await Task.Delay(2000);
+
+            return response;
+        }
+        private async Task<List<MoedaResponse>> ConvertResponseAsync(List<Moeda> moedas)
+        {
+            List<MoedaResponse> response = new List<MoedaResponse>();
+
+            foreach (var item in moedas)
+            {
+                response.Add(new MoedaResponse() { moeda = item.moeda, data_inicio = item.data_inicio.ToString("yyyy-MM-dd"), data_fim = item.data_fim.ToString("yyyy-MM-dd") });
+            }
+            await Task.Delay(2000);
+
+            return response;
+        }
+
     }
 }

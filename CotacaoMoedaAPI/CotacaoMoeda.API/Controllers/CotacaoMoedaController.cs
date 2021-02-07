@@ -21,18 +21,30 @@ namespace CotacaoMoeda.API.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddItemFila(List<MoedaRequest> request)
+        public async void AddItemFila(List<MoedaRequest> request)
         {
-            string Response = _moedaService.AddMoeda(request);
-            return Json(Response);
+            _moedaService.AddMoedaAsync(request);
+            await Task.Delay(2000);
         }
 
         [HttpGet]
-        public JsonResult GetItemFila()
+        public async Task<JsonResult> GetItemFila()
         {
-            List<MoedaResponse> Response = _moedaService.GetMoeda();
+            try
+            {
+                var Response = await _moedaService.GetMoedaAsync();
 
-            return Json(Response);
+                if (Response.Count > 0)
+                {
+                    return Json(Response);
+                }
+                return Json("Nao ha Objetos na Fila");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
