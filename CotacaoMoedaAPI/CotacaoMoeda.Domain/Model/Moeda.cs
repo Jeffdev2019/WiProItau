@@ -43,7 +43,7 @@ namespace CotacaoMoeda.Domain.Model
 
                 if (linhas.Count > 0)
                 {
-                    string[] moeda = linhas.Max().Split(";");
+                    string[] moeda = linhas.FirstOrDefault().Split(";");
 
                     response.Add(new Moeda(moeda[0], DateTime.Parse(moeda[1]), DateTime.Parse(moeda[2])));
                 }

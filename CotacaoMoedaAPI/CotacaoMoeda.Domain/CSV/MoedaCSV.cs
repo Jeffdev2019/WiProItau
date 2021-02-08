@@ -37,16 +37,27 @@ namespace CotacaoMoeda.Domain.CSV
 
         public async Task<List<string>> LerFileAsync()
         {
+            Dictionary<string, string> Linhas = new Dictionary<string, string>();
             List<string> Response = new List<string>();
+            List<string> file = new List<string>();
 
             var Arquivo = await File.ReadAllLinesAsync(folder + "\\FilaMoeda.csv");
-
+            int i = 0;
             foreach (var item in Arquivo)
             {
-                Response.Add(item);
+                Linhas.Add(i.ToString(), item);
+                i++;
+            }
+            foreach (var item in Linhas)
+            {
+                Response.Add(item.Value);
+                if (!Equals(item.Key, "0"))
+                {
+                    file.Add(item.Value);
+                }
             }
 
-            await File.WriteAllLinesAsync(folder + "\\FilaMoeda.csv", Arquivo.Take(Arquivo.Length - 1));
+            await File.WriteAllLinesAsync(folder + "\\FilaMoeda.csv", file.Take(Arquivo.Length - 1));
 
 
             return Response;
@@ -64,6 +75,8 @@ namespace CotacaoMoeda.Domain.CSV
             {
                 file.Add(linha);
             }
+            
+            
             await File.WriteAllLinesAsync(folder + "\\FilaMoeda.csv", file.Take(file.Count + 1));
 
         }

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CotacaoMoeda.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CotacaoMoedaController : Controller
     {
         private readonly IMoedaService _moedaService;
@@ -25,6 +25,7 @@ namespace CotacaoMoeda.API.Controllers
         {
             try
             {
+                request.Reverse();
                 var response = await _moedaService.AddMoedaAsync(request);
                 return Json(response);
             }

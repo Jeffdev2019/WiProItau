@@ -20,7 +20,6 @@ namespace CotacaoMoeda.Service.Service
 
         public async Task<List<MoedaResponse>> GetMoedaAsync()
         {
-
             var response = await ConvertResponseAsync(await _moeda.GetMoedasAsync());
             return response;
         }
