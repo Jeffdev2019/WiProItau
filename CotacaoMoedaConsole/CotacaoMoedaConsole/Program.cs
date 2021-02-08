@@ -39,14 +39,12 @@ namespace CotacaoMoedaConsole
                     new Thread(NovaThread).Start();
 
                     Thread.Sleep(120000);
-                    //Thread.Sleep(5000);
                     stopWatch.Restart();
                     GetMoeda().Wait();
                 }
                 else
                 {
-                    Thread.Sleep(5000);
-                    //Thread.Sleep(5000);
+                    Thread.Sleep(120000);
                     stopWatch.Restart();
                     GetMoeda().Wait();
                 }
