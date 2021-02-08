@@ -13,11 +13,11 @@ namespace CotacaoMoeda.Domain.Model
     public class Moeda : IMoeda
     {
         private IMoedaCSV _moedaCSV;
-        public Moeda(string moeda, string data_inicio, string data_fim)
+        public Moeda(string moeda, DateTime data_inicio, DateTime data_fim)
         {
             this.moeda = moeda;
-            this.data_inicio = DateTime.Parse(data_inicio);
-            this.data_fim = DateTime.Parse(data_fim);
+            this.data_inicio = data_inicio;
+            this.data_fim = data_fim;
         }
         public Moeda(IMoedaCSV moedaCSV)
         {
@@ -39,17 +39,15 @@ namespace CotacaoMoeda.Domain.Model
             List<Moeda> response = new List<Moeda>();
             if (await _moedaCSV.VerificaFileAsync())
             {
-                var arquivo = await _moedaCSV.LerFileAsync();
+                var linhas = await _moedaCSV.LerFileAsync();
 
-                if (arquivo.Count > 0)
+                if (linhas.Count > 0)
                 {
-                    string[] moedas = arquivo.Max().Split(";");
-                    foreach (var item in moedas)
-                    {
-                        var moeda = item.Split(",");
-                        response.Add(new Moeda(moeda[0], moeda[1], moeda[2]));
-                    }
+                    string[] moeda = linhas.Max().Split(";");
+
+                    response.Add(new Moeda(moeda[0], DateTime.Parse(moeda[1]), DateTime.Parse(moeda[2])));
                 }
+
             }
             return response;
         }
@@ -59,17 +57,10 @@ namespace CotacaoMoeda.Domain.Model
             {
                 _moedaCSV.CriarFileAsync();
             }
-            string Linha = "";
+            List<string> Linha = new List<string>();
             foreach (var item in moedas)
             {
-                if (Linha.Length == 0)
-                {
-                    Linha = item.moeda + "," + item.data_inicio.ToString("yyyy-MM-dd") + "," + item.data_fim.ToString("yyyy-MM-dd");
-                }
-                else
-                {
-                    Linha = Linha + ";" + item.moeda + "," + item.data_inicio.ToString("yyyy-MM-dd") + "," + item.data_fim.ToString("yyyy-MM-dd");
-                }
+                Linha.Add(item.moeda + ";" + item.data_inicio.ToString("yyyy-MM-dd") + ";" + item.data_fim.ToString("yyyy-MM-dd"));
             }
             _moedaCSV.AddFileAsync(Linha);
 

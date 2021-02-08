@@ -21,10 +21,18 @@ namespace CotacaoMoeda.API.Controllers
         }
 
         [HttpPost]
-        public async void AddItemFila(List<MoedaRequest> request)
+        public async Task<JsonResult> AddItemFila(List<MoedaRequest> request)
         {
-            _moedaService.AddMoedaAsync(request);
-            await Task.Delay(2000);
+            try
+            {
+                var response = await _moedaService.AddMoedaAsync(request);
+                return Json(response);
+            }
+            catch (Exception ex)
+            {
+
+                return Json(ex.Message);
+            }
         }
 
         [HttpGet]

@@ -52,10 +52,20 @@ namespace CotacaoMoeda.Domain.CSV
             return Response;
         }
 
-        public async void AddFileAsync(string linha)
+        public async void AddFileAsync(List<string> linhas)
         {
-            await File.WriteAllTextAsync(folder + "\\FilaMoeda.csv", linha);
-            await Task.Delay(2000);
+            List<string> file = new List<string>();
+            var Arquivo = await File.ReadAllLinesAsync(folder + "\\FilaMoeda.csv");
+            foreach (var item in Arquivo)
+            {
+                file.Add(item);
+            }
+            foreach (var linha in linhas)
+            {
+                file.Add(linha);
+            }
+            await File.WriteAllLinesAsync(folder + "\\FilaMoeda.csv", file.Take(file.Count + 1));
+
         }
     }
 }

@@ -8,6 +8,6 @@ namespace CotacaoMoeda.Domain.Interfaces.Service
     public interface IMoedaService 
     {
         Task<List<MoedaResponse>> GetMoedaAsync();
-        void AddMoedaAsync(List<MoedaRequest> request);
+        Task<string> AddMoedaAsync(List<MoedaRequest> request);
     }
 }

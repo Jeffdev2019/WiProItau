@@ -10,7 +10,7 @@ namespace CotacaoMoeda.Domain.Interfaces.CSV
         void CriarFileAsync();
         Task<bool> VerificaFileAsync();
         Task<List<string>> LerFileAsync();
-        void AddFileAsync(string Linha);
+        void AddFileAsync(List<string> Linha);
 
     }
 }

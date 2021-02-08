@@ -6,3 +6,5 @@
 /CotacaoMoedaAPI/CotacaoMoeda.API/bin/Debug/netcoreapp3.1
 /CotacaoMoedaAPI/CotacaoMoeda.Service/obj
 /CotacaoMoedaAPI/CotacaoMoeda.Domain/CSV/FilaMoeda.csv
+/CotacaoMoedaConsole/.vs/CotacaoMoedaConsole/v16
+/CotacaoMoedaConsole/CotacaoMoedaConsole/obj

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "CotacaoMoedaConsole/1.0.0": {
+        "runtime": {
+          "CotacaoMoedaConsole.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CotacaoMoedaConsole/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
