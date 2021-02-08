@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using CotacaoMoedaConsole.Service;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -13,32 +16,51 @@ namespace CotacaoMoedaConsole
     class Program
     {
         private static Queue<Moeda> Moedas;
+        private static Stopwatch stopWatch;
         static void InicializaFila()
         {
             Moedas = new Queue<Moeda>();
+            stopWatch = new Stopwatch();
         }
 
         static  void Main(string[] args)
         {
+
             InicializaFila();
+            stopWatch.Start();
 
             GetMoeda().Wait();
 
             while (Moedas.Count > 0)
             {
-                new Thread(NovaThread).Start();
+                var valida = Moedas.Peek();
+                if (!String.IsNullOrEmpty(valida.moeda))
+                {
+                    new Thread(NovaThread).Start();
 
-                Thread.Sleep(5000);
-
-                GetMoeda().Wait();
+                    Thread.Sleep(120000);
+                    //Thread.Sleep(5000);
+                    stopWatch.Restart();
+                    GetMoeda().Wait();
+                }
+                else
+                {
+                    Thread.Sleep(5000);
+                    //Thread.Sleep(5000);
+                    stopWatch.Restart();
+                    GetMoeda().Wait();
+                }
             }
         }
 
         static void NovaThread()
         {
             var str = Moedas.Dequeue();
+            MoedaService.CriarMoedaCotacao(str);
             Console.WriteLine("\nMoeda: " + str.moeda + "\nData Inicio: " + str.data_inicio + "\nData Fim: " + str.data_fim );
             Thread.Sleep(100);
+            stopWatch.Stop();
+            Console.WriteLine("\nTempo de Ciclo: " + stopWatch.Elapsed);
         }
 
         static async Task GetMoeda()
@@ -56,7 +78,10 @@ namespace CotacaoMoedaConsole
                     var produto = await response.Content.ReadAsStringAsync();
                     if (produto.Contains("Nao ha Objetos na Fila"))
                     {
-                        Console.WriteLine("\nNão há Objeto na Fila, Rotina Parou");
+                        Console.WriteLine("\nNão há Objeto na Fila");
+                        Moedas.Enqueue(new Moeda() { moeda = "", data_inicio = "", data_fim = "" });
+                        stopWatch.Stop();
+                        Console.WriteLine("\nTempo de Ciclo: " + stopWatch.Elapsed);
                     }
                     else
                     {
